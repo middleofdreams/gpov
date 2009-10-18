@@ -3,7 +3,7 @@
 import sys,pygtk,gtk,gtk.glade,gobject,os,locale,subprocess
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
 import lib
-#teeest
+#teeestss
 #--------KLASA GLOWNA-----------#
 
 class gpov:
