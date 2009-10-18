@@ -5,3 +5,5 @@ Zapisywanie jako
 Caly menubar i status bar
 Dodawanie kolejnych obiektow do povraya
 Opisanie plikow i funkcji
+Działanie w kartach (?)
+Kolorowanie składni
