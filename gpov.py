@@ -43,7 +43,7 @@ class gpov:
 		"zamknij": gtk.main_quit,
 		"toggle" : self.antialiastoggle,
 		"edytuj" : self.edytuj,
-		"save_file" : lib.events.save_file}
+		"save_file" : self.save}
 	
 		self.wTree.signal_autoconnect(dic)
 		
@@ -72,7 +72,8 @@ class gpov:
 		lib.prefs.saveprefs(self)
 		lib.events.renderuj(self)
 		
-		
+	def save(self,widget):
+			lib.events.save_file(self)
 	def edytuj(self,widget):
 		if self.wybor.get_filename()==None:
 			self.errorwindow(self)

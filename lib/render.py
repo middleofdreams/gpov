@@ -1,25 +1,25 @@
 import threading,events,subprocess,gets,time
 
-class watek(threading.Thread):
-	
-	 
-	 def __init__ (self,klasa,options,progress):
-		threading.Thread.__init__(self)
-		self.klasa=klasa
-		self.options=options
-		self.progress=progress
-		self.running=True
-		threading.Thread(target=self.renderowanie,args=()).start()
-		threading.Thread(target=self.progressbar,args=()).start()
-			
-	 def renderowanie(self):	
-		proces = subprocess.Popen("povray "+self.options+" -D", shell=True,stderr=subprocess.PIPE)
-		if gets.getoutput(proces,self.klasa): 
-			events.pictshow(gets.getpicdir(self.klasa))
-		self.running=False
-		self.progress.hide()
+def progressbar(progress):
+	while progress !=None:
+		time.sleep(0.1)
+		progress.pulse()
+
+def renderowanie(klasa,options,progress):	
+		proces = subprocess.Popen("povray "+options+" -D", shell=True,stderr=subprocess.PIPE)
+		if gets.getoutput(proces,klasa): 
+			events.pictshow(gets.getpicdir(klasa))
 		
-	 def progressbar(self):
-		while self.running:
-			time.sleep(0.1)
-			self.progress.get_children()[0].pulse()
+		progress.destroy()
+
+		
+
+def threadinit(klasa,options,progress):
+	threading.Thread(target=progressbar,args=(progress)).start()
+	threading.Thread(target=renderowanie,args=(klasa,options,progress)).start()
+
+
+
+	 
+	 
+	 

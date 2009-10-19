@@ -88,7 +88,7 @@ def renderuj(klasa):
 	else:	
 		win=showprogress()
 		options=gets.getcmdoptions(klasa)
-		render.watek(klasa,options,win)
+		render.threadinit(klasa,options,win)
 			
 
 	
