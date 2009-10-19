@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import sys,pygtk,gtk,gtk.glade,gobject,os,locale,subprocess
+import sys,pygtk,gtk,gtk.glade,gobject,os,locale,subprocess,time
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
 import lib
-#teeestss
+
 #--------KLASA GLOWNA-----------#
 
 class gpov:
@@ -30,7 +30,6 @@ class gpov:
 		self.width = self.wTree.get_widget("entry1")
 		self.edytor=self.wTree.get_widget("edytor")
 		self.outt=self.wTree.get_widget("textview1")
-		
 		#modyfikacja buffera edytora - dla undo i redo
 		self.edytor.set_buffer(lib.undobuffer.UndoableBuffer())
 		

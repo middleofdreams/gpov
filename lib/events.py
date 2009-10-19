@@ -1,6 +1,20 @@
-import os,sys,gtk,subprocess,gets
+import os,sys,gtk,subprocess,gets,time,render
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
-				
+
+def showprogress():
+	okno=gtk.Window(gtk.WINDOW_TOPLEVEL)
+	okno.set_keep_above(True)
+	okno.set_decorated(False)
+	okno.show()
+	okno.resize(400,100)
+	okno.set_decorated(False)
+	okno.set_position(gtk.WIN_POS_CENTER_ALWAYS)
+	progress=gtk.ProgressBar()
+	progress.set_text("Trwa renderowanie")
+	okno.add(progress)
+	progress.show()
+	return okno
+					
 def show_editor(klasa):
 	klasa.edytor.show()
 	klasa.wTree.get_widget("button4").show()
@@ -72,10 +86,11 @@ def renderuj(klasa):
 	if klasa.wybor.get_filename()==None:
 		errorwindow(klasa)
 	else:	
+		win=showprogress()
 		options=gets.getcmdoptions(klasa)
-		proces = subprocess.Popen("povray "+options+" -D", shell=True,stderr=subprocess.PIPE)
-		if gets.getoutput(proces,klasa): 
-			pictshow(gets.getpicdir(klasa))
-				
+		render.watek(klasa,options,win)
+			
+
+	
 
 		

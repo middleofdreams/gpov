@@ -1,7 +1,9 @@
-Informacja o renderowaniu
+Informacja o renderowaniu - zrobione
 Miniaturka (?)
 Tworzenie nowych plikow
 Zapisywanie jako
 Caly menubar i status bar
 Dodawanie kolejnych obiektow do povraya
 Opisanie plikow i funkcji
+Poprawki do edytora (automatyczne wczytanie tresci przy wyborze pliku 
+jesli edytor jest otwarty)
