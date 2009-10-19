@@ -7,3 +7,5 @@ Dodawanie kolejnych obiektow do povraya
 Opisanie plikow i funkcji
 Poprawki do edytora (automatyczne wczytanie tresci przy wyborze pliku 
 jesli edytor jest otwarty)
+
+Eliminacja bugow
