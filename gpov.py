@@ -4,7 +4,7 @@ import sys,pygtk,gtk,gtk.glade,gobject,os,locale,subprocess,time
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
 import lib
 
-#--------KLASA GLOWNA-----------#
+#--------KLASA GLOWNA----23-------#
 
 class gpov:
 	def __init__(self):
