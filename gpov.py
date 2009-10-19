@@ -4,7 +4,7 @@ import sys,pygtk,gtk,gtk.glade,gobject,os,locale,subprocess,time
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
 import lib
 
-#--------KLASA GLOWNA----23-------#
+#--------KLASA GLOWNA-----------#
 
 class gpov:
 	def __init__(self):
@@ -49,7 +49,7 @@ class gpov:
 		
 		#numerowanie lini w edytorze:
 		self.edytor.set_border_window_size(gtk.TEXT_WINDOW_LEFT, 30)
-		self.edytor.connect("expose_event", lib.numbering.line_numbers_expose, self)
+		self.edytor.connect("expose_event", self.edytorexpose_event)
 		
 		#filtr dla wyboru plikow
 		filter = gtk.FileFilter()
@@ -74,6 +74,8 @@ class gpov:
 		
 	def save(self,widget):
 			lib.events.save_file(self)
+			self.tb.set_modified(False)
+
 	def edytuj(self,widget):
 		if self.wybor.get_filename()==None:
 			self.errorwindow(self)
@@ -93,7 +95,12 @@ class gpov:
 		else:
 			self.wTree.get_widget("spinbutton1").set_sensitive(0)
 			
-	
+	def edytorexpose_event(self,widget, event):
+		lib.numbering.line_numbers_expose(widget,event,self)
+		if self.tb.get_modified():
+			self.wTree.get_widget("button4").set_sensitive(1)
+		else: 
+			self.wTree.get_widget("button4").set_sensitive(0)
 	def kamera(self,widget): lib.povrayobjects.kamera(self)
 	def swiatlo(self,widget): lib.povrayobjects.swiatlo(self)
 	def box(self,widget): lib.povrayobjects.box(self)
