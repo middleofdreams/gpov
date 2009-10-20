@@ -1,11 +1,13 @@
-Informacja o renderowaniu - zrobione
-Miniaturka (?)
-Tworzenie nowych plikow
-Zapisywanie jako
-Caly menubar i status bar
-Dodawanie kolejnych obiektow do povraya
-Opisanie plikow i funkcji
-Poprawki do edytora (automatyczne wczytanie tresci przy wyborze pliku 
-jesli edytor jest otwarty)
-
-Eliminacja bugow
+#---TODO--
+#---------
+#menubar
+#zapisz jako, nowy plik *.pov
+#help
+#miniaturka w edycji
+#obiekty(kula,swiatlo,stozek,lathe,sor,prism)
+#wstawianie obiektow w miejscu kursora
+#autozapis
+#Opisanie plikow i funkcji
+#eliminacja bugow
+#skroty klawiszowe
+#karty

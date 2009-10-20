@@ -211,7 +211,7 @@
                           <widget class="GtkFileChooserButton" id="filechooserbutton1">
                             <property name="visible">True</property>
                             <property name="create_folders">False</property>
-                            <signal name="file_set" handler="hide_editor"/>
+                            <signal name="file_set" handler="on_file_loaded"/>
                           </widget>
                           <packing>
                             <property name="expand">False</property>

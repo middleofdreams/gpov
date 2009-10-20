@@ -43,7 +43,8 @@ class gpov:
 		"zamknij": gtk.main_quit,
 		"toggle" : self.antialiastoggle,
 		"edytuj" : self.edytuj,
-		"save_file" : self.save}
+		"save_file" : self.save,
+		"on_file_loaded" : self.file_load}
 	
 		self.wTree.signal_autoconnect(dic)
 		
@@ -67,6 +68,10 @@ class gpov:
 		"kula"	: self.kula,
 		"wielokat"	: self.obrotowy}
 		self.wTree.signal_autoconnect(dic)
+	
+	def file_load(self,widget):
+		if self.editorvisible:
+			lib.events.show_editor(self)
 		
 	def execute(self,widget):
 		lib.prefs.saveprefs(self)
