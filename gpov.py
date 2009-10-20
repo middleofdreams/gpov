@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import sys,pygtk,gtk,gtk.glade,gobject,os,locale,subprocess,time
+import sys,pygtk,gtk,gtk.glade,gobject,os,locale,subprocess,time,threading
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
 import lib
 
@@ -44,7 +44,8 @@ class gpov:
 		"toggle" : self.antialiastoggle,
 		"edytuj" : self.edytuj,
 		"save_file" : self.save,
-		"on_file_loaded" : self.file_load}
+		"on_file_loaded" : self.file_load,
+		"newfile" : self.newfile}
 	
 		self.wTree.signal_autoconnect(dic)
 		
@@ -69,6 +70,26 @@ class gpov:
 		"wielokat"	: self.obrotowy}
 		self.wTree.signal_autoconnect(dic)
 	
+	
+	def setfile(self):
+		#time.sleep(1)
+		while self.wybor.get_filename()==None:
+			self.wybor.set_filename(self.filename)
+	
+	def newfile(self,widget):
+		dlgbuttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL, gtk.STOCK_SAVE, gtk.RESPONSE_OK)
+		self.filechooser=gtk.FileChooserDialog(title="Wybierz nazwe pliku", parent=None, action=gtk.FILE_CHOOSER_ACTION_SAVE, buttons=dlgbuttons, backend=None)
+		
+		if self.filechooser.run() == gtk.RESPONSE_OK:
+			self.filename = self.filechooser.get_filename()
+			self.filechooser.destroy()
+			db = open(self.filename,"w")
+			db.write("#include \"colors.inc\"\n")
+			db.close()
+			self.wybor.unselect_all()
+			threading.Thread(target=self.setfile,args=()).start()	
+			lib.events.editortoggle(self,self.filename)
+	
 	def file_load(self,widget):
 		if self.editorvisible:
 			lib.events.show_editor(self)
@@ -82,16 +103,7 @@ class gpov:
 			self.tb.set_modified(False)
 
 	def edytuj(self,widget):
-		if self.wybor.get_filename()==None:
-			self.errorwindow(self)
-		else:
-			if self.editorvisible:
-				lib.events.hide_editor(self)
-				self.editorvisible=False
-				
-			else: 
-				lib.events.show_editor(self)
-				self.editorvisible=True
+		lib.events.editortoggle(self)
 
 		
 	def antialiastoggle(self,widget):

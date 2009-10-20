@@ -58,6 +58,8 @@
                         <property name="visible">True</property>
                         <property name="use_underline">True</property>
                         <property name="use_stock">True</property>
+                        <signal name="activate_item" handler="newfile"/>
+                        <signal name="activate" handler="newfile"/>
                       </widget>
                     </child>
                     <child>

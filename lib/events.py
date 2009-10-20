@@ -15,12 +15,12 @@ def showprogress():
 	progress.show()
 	return okno
 					
-def show_editor(klasa):
+def show_editor(klasa,filename):
 	klasa.edytor.show()
 	klasa.wTree.get_widget("button4").show()
 	klasa.wTree.get_widget("hboxx").show()
 	klasa.wTree.get_widget("hbox3").show()
-	f=open(klasa.wybor.get_filename(),'r')
+	f=open(filename,'r')
 	klasa.edytor.set_sensitive(False)
 	klasa.tb.begin_not_undoable_action()
 	buff = klasa.edytor.get_buffer()
@@ -50,9 +50,9 @@ def save_file(klasa,*widget):
 	fout.close()
 
 def errorwindow(klasa, *widget):
-	klasa.response = klasa.wTree.get_widget("messagedialog1").run() 
-	if klasa.response == gtk.RESPONSE_DELETE_EVENT or klasa.response == gtk.RESPONSE_CANCEL:
-		klasa.wTree.get_widget("messagedialog1").hide()	
+	window=klasa.wTree.get_widget("messagedialog1")
+	window.run() 
+	window.hide()
 		
 	
 	
@@ -67,5 +67,18 @@ def renderuj(klasa):
 			
 
 	
-
+def editortoggle(klasa,filename=None):
+	if klasa.wybor.get_filename()==None and filename==None:
+		errorwindow(klasa)
+	else:
+		if filename==None:
+			filename=klasa.wybor.get_filename()
+			
+		if klasa.editorvisible:
+			hide_editor(klasa)
+			klasa.editorvisible=False
+			
+		else: 
+			show_editor(klasa,filename)
+			editorvisible=True
 		
