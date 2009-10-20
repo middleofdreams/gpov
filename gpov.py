@@ -60,7 +60,7 @@ class gpov:
 		#pobranie ostatnich ustawien
 		lib.prefs.loadprefs(self)
 		self.editorvisible=False
-		
+		self.tb.set_modified(False)
 		dic ={"kamera" : self.kamera,
 		"swiatlo" : self.swiatlo,
 		"box"	: self.box,

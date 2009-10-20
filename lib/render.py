@@ -1,4 +1,4 @@
-import threading,events,subprocess,gets,time
+import threading,subprocess,gets,time,picture
 
 class testrunning():
 	def __init__(self):
@@ -17,11 +17,16 @@ def progressbar(progress,var):
 	#var.destroy()
 
 def renderowanie(klasa,options,progress,var):	
+	klasa.wTree.get_widget("button1").set_sensitive(0)
 	proces = subprocess.Popen("povray "+options+" -D", shell=True,stderr=subprocess.PIPE)
 	if gets.getoutput(proces,klasa): 
-		events.pictshow(gets.getpicdir(klasa))
+		time.sleep(0.1)
+		picture.pictshow(gets.getpicdir(klasa))
 	var.set_running(False)
 	progress.destroy()
+	time.sleep(0.1)
+	klasa.wTree.get_widget("button1").set_sensitive(1)
+
 
 		
 

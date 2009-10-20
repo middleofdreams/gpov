@@ -1,4 +1,4 @@
-import os,sys,gtk,subprocess,gets,time,render
+import os,sys,gtk,subprocess,gets,time,render,picture
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
 
 def showprogress():
@@ -56,58 +56,6 @@ def errorwindow(klasa, *widget):
 		
 	
 	
-def picthide(widget):
-		widget.get_parent_window().hide()
-
-def pictshow(image):
-	okno=gtk.Window()
-	okno.set_position(gtk.WIN_POS_CENTER)
-	box=gtk.VBox()
-	box2=gtk.HBox()
-	okno.set_title("Wyrenderowany obraz:")
-	lay=gtk.Layout()
-	przycisk=gtk.Button(stock=gtk.STOCK_CLOSE)
-	box2.pack_start(lay,True,True,0)
-	box2.pack_start(przycisk,False,False,1)
-	obraz=gtk.Image()
-	pict=gtk.gdk.pixbuf_new_from_file(image)
-	
-##################################################################
-## sprawdzanie czy rozmiar jest wiekszy od ekranu + skalowanie	##
-#################### wydzielic do funkcji! #######################
-##################################################################
-
-	wys=pict.get_height()
-	szer=pict.get_width()
-	maxheight=gtk.gdk.screen_height()-200
-	maxwidth=gtk.gdk.screen_width()-240
-	if szer>maxwidth or wys>maxheight:
-		
-		roznicawys=wys-maxheight
-		roznicaszer=szer-maxwidth
-		procentszer=1-float(roznicaszer*100/szer)*0.01
-		procentwys=1-float(roznicawys*100/wys)*0.01
-		if procentwys>procentszer:
-			procent=procentszer
-		else:
-			procent=procentwys
-		szer=int(szer*procent)
-		wys=int(wys*procent)
-		print wys
-		print szer
-		obraz.set_from_pixbuf(pict.scale_simple(szer,wys,gtk.gdk.INTERP_BILINEAR))
-	else:
-		obraz.set_from_pixbuf(pict)
-	box.pack_start(obraz,False,False,0)
-	box.pack_start(box2,False,False,1)
-	box2.show()
-	przycisk.show()
-	lay.show()
-	okno.add(box)
-	box.show()
-	przycisk.connect("clicked",picthide)
-	obraz.show()
-	okno.show()
 
 def renderuj(klasa):
 	if klasa.wybor.get_filename()==None:
