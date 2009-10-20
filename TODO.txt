@@ -11,4 +11,4 @@
 #eliminacja bugow
 #skroty klawiszowe
 #karty
-#wielki kurwa test!
+
