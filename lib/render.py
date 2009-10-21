@@ -20,7 +20,7 @@ def renderowanie(klasa,options,progress,var):
 	klasa.wTree.get_widget("button1").set_sensitive(0)
 	proces = subprocess.Popen("povray "+options+" -D", shell=True,stderr=subprocess.PIPE)
 	if gets.getoutput(proces,klasa): 
-		time.sleep(0.1)
+		time.sleep(0.4)
 		picture.pictshow(gets.getpicdir(klasa))
 	var.set_running(False)
 	progress.destroy()
