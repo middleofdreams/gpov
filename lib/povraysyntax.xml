@@ -18,11 +18,11 @@
 	<pattern style="comment">//.*$</pattern>
 	
 		
-	<pattern style="mark1">#.*$</pattern>
+
+	<string style="mark2"><starts>#</starts><ends> </ends></string>
 	<string style="comment"><starts>/\*</starts><ends>\*/</ends></string>
 
 	
-	<string style="special"><starts>&#60;</starts><ends>&#62;</ends></string>
 
 
 	<pattern style="mark1">&#125;</pattern>
@@ -38,6 +38,8 @@
 
 	
 	<pattern style="datatype">[$]+[a-zA-Z_][a-zA-Z0-9_]*</pattern>
+	<pattern style="number">[0-9]</pattern>
+
 	<pattern style="datatype">(\[|\])</pattern>
 	
         
@@ -45,6 +47,66 @@
 
  	
 	<keywordlist style="keyword" flags="">
+		  <keyword>bicubic_patch</keyword>
+      <keyword>blob</keyword>
+      <keyword>box</keyword>
+      <keyword>camera</keyword>
+      <keyword>cone</keyword>
+      <keyword>cubic</keyword>
+      <keyword>cylinder</keyword>
+      <keyword>difference</keyword>
+      <keyword>disc</keyword>
+      <keyword>height_field</keyword>
+      <keyword>intersection</keyword>
+      <keyword>isosurface</keyword>
+      <keyword>julia_fractal</keyword>
+      <keyword>lathe</keyword>
+      <keyword>light_source</keyword>
+      <keyword>merge</keyword>
+      <keyword>mesh</keyword>
+      <keyword>mesh2</keyword>
+      <keyword>object</keyword>
+      <keyword>parametric</keyword>
+      <keyword>plane</keyword>
+      <keyword>poly</keyword>
+      <keyword>polygon</keyword>
+      <keyword>prism</keyword>
+      <keyword>quadric</keyword>
+      <keyword>quartic</keyword>
+      <keyword>smooth_triangle</keyword>
+      <keyword>sor</keyword>
+      <keyword>sphere</keyword>
+      <keyword>sphere_sweep</keyword>
+      <keyword>superellipsoid</keyword>
+      <keyword>text</keyword>
+      <keyword>torus</keyword>
+      <keyword>triangle</keyword>
+      <keyword>union</keyword>
+
+	</keywordlist>
+	<keywordlist style="keyword" flags="I">
+		<keyword>true</keyword>	
+		<keyword>false</keyword>
+		<keyword>null</keyword>
+	</keywordlist>
+	<pattern style="keyword">[-.~^@;:/%|\=\+\*\!\?&amp;&lt;&gt;]</pattern>
+	
+	
+	<keywordlist style="datatype" flags="">
+		<keyword>array</keyword>
+		<keyword>bool</keyword>
+		<keyword>boolean</keyword>
+		<keyword>double</keyword>
+		<keyword>float</keyword>
+		<keyword>int</keyword>
+		<keyword>integer</keyword>
+		<keyword>object</keyword>
+		<keyword>real</keyword>
+		<keyword>string</keyword>
+		<keyword>unset</keyword>
+	</keywordlist>
+
+	<keywordlist style="special" flags="">
 		   <keyword>aa_threshold</keyword>
 			  <keyword>aa_level</keyword>
 			  <keyword>absorption</keyword>      
@@ -486,28 +548,6 @@
 			  <keyword>global_lights</keyword>
 			  <keyword>internal</keyword>
 			  <keyword>noise_generator</keyword>    
-
+ 
 	</keywordlist>
-	<keywordlist style="keyword" flags="I">
-		<keyword>true</keyword>	
-		<keyword>false</keyword>
-		<keyword>null</keyword>
-	</keywordlist>
-	<pattern style="keyword">[-.~^@;:/%|\=\+\*\!\?&amp;&lt;&gt;]</pattern>
-	
-	
-	<keywordlist style="datatype" flags="">
-		<keyword>array</keyword>
-		<keyword>bool</keyword>
-		<keyword>boolean</keyword>
-		<keyword>double</keyword>
-		<keyword>float</keyword>
-		<keyword>int</keyword>
-		<keyword>integer</keyword>
-		<keyword>object</keyword>
-		<keyword>real</keyword>
-		<keyword>string</keyword>
-		<keyword>unset</keyword>
-	</keywordlist>
-
 </syntax>

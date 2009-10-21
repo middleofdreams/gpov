@@ -40,7 +40,7 @@ def hide_editor(klasa,*widget):
 	klasa.wTree.get_widget("button4").hide()
 	klasa.wTree.get_widget("hboxx").hide()
 	klasa.wTree.get_widget("hbox3").hide()
-	klasa.window.resize(230,230)
+	klasa.window.resize(213,230)
 	
 def save_file(klasa,*widget):
 	buff = klasa.edytor.get_buffer()
@@ -84,5 +84,5 @@ def editortoggle(klasa,filename=None):
 			
 		else: 
 			show_editor(klasa,filename)
-			editorvisible=True
+			klasa.editorvisible=True
 		
