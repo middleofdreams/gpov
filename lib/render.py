@@ -14,11 +14,13 @@ def progressbar(progress,var):
 		time.sleep(0.1)
 		if progress.child!=None:
 			progress.child.pulse()
+	time.sleep(0.1)
 	#var.destroy()
 
 def renderowanie(klasa,options,progress,var):	
 	klasa.wTree.get_widget("button1").set_sensitive(0)
 	proces = subprocess.Popen("povray "+options+" -D", shell=True,stderr=subprocess.PIPE)
+	time.sleep(0.1)
 	if gets.getoutput(proces,klasa): 
 		time.sleep(0.4)
 		picture.pictshow(gets.getpicdir(klasa))

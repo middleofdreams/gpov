@@ -20,6 +20,7 @@ def show_editor(klasa,filename):
 	klasa.wTree.get_widget("button4").show()
 	klasa.wTree.get_widget("hboxx").show()
 	klasa.wTree.get_widget("hbox3").show()
+	klasa.wTree.get_widget("vpaned2").set_position(400)
 	f=open(filename,'r')
 	klasa.edytor.set_sensitive(False)
 	klasa.tb.begin_not_undoable_action()
