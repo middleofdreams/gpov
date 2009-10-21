@@ -3,7 +3,7 @@
 import sys,pygtk,gtk,gtk.glade,gobject,os,locale,subprocess,time,threading
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
 import lib
-
+from lib.gpovbuffer import CodeBuffer
 #--------KLASA GLOWNA-----------#
 
 class gpov:
@@ -31,7 +31,7 @@ class gpov:
 		self.edytor=self.wTree.get_widget("edytor")
 		self.outt=self.wTree.get_widget("textview1")
 		#modyfikacja buffera edytora - dla undo i redo
-		self.edytor.set_buffer(lib.undobuffer.UndoableBuffer())
+		self.edytor.set_buffer(CodeBuffer(None))
 		
 		#pobranie bufferow edytora i outputu
 		self.tb=self.edytor.get_buffer()

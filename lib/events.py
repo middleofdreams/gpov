@@ -1,6 +1,6 @@
 import os,sys,gtk,subprocess,gets,time,render,picture
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
-
+from gpovbuffer import add_syntax_path, SyntaxLoader
 def showprogress():
 	okno=gtk.Window(gtk.WINDOW_TOPLEVEL)
 	okno.set_keep_above(True)
@@ -29,6 +29,9 @@ def show_editor(klasa,filename):
 	klasa.edytor.set_sensitive(True)	
 	klasa.tb.end_not_undoable_action()
 	f.close()
+	add_syntax_path(".")
+	lspec = SyntaxLoader("povraysyntax")
+	klasa.tb.reset_language(lspec)
 	klasa.window.move(gtk.gdk.screen_width()/4, gtk.gdk.screen_height()/6)
 
 def hide_editor(klasa,*widget):
