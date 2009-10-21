@@ -552,11 +552,11 @@
                             <property name="orientation">vertical</property>
                             <child>
                               <widget class="GtkButton" id="button5">
-                                <property name="label" translatable="yes">Kamera</property>
+                                <property name="label" translatable="yes">camera</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <signal name="clicked" handler="kamera"/>
+                                <signal name="clicked" handler="camera"/>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>
@@ -566,7 +566,7 @@
                             </child>
                             <child>
                               <widget class="GtkButton" id="button7">
-                                <property name="label" translatable="yes">Box</property>
+                                <property name="label" translatable="yes">box</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
@@ -580,16 +580,44 @@
                             </child>
                             <child>
                               <widget class="GtkButton" id="button8">
-                                <property name="label" translatable="yes">Wielok&#x105;t</property>
+                                <property name="label" translatable="yes">sor</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <signal name="clicked" handler="wielokat"/>
+                                <signal name="clicked" handler="sor"/>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="fill">False</property>
                                 <property name="position">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button11">
+                                <property name="label" translatable="yes">prism</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <signal name="clicked" handler="prism"/>
+                              </widget>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button12">
+                                <property name="label" translatable="yes">cone</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <signal name="clicked" handler="cone"/>
+                              </widget>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">4</property>
                               </packing>
                             </child>
                           </widget>
@@ -605,10 +633,11 @@
                             <property name="orientation">vertical</property>
                             <child>
                               <widget class="GtkButton" id="button6">
-                                <property name="label" translatable="yes">button</property>
+                                <property name="label" translatable="yes">light</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <signal name="clicked" handler="light"/>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>
@@ -618,10 +647,11 @@
                             </child>
                             <child>
                               <widget class="GtkButton" id="button9">
-                                <property name="label" translatable="yes">button</property>
+                                <property name="label" translatable="yes">polygon</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <signal name="clicked" handler="polygon"/>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>
@@ -631,15 +661,44 @@
                             </child>
                             <child>
                               <widget class="GtkButton" id="button10">
-                                <property name="label" translatable="yes">button</property>
+                                <property name="label" translatable="yes">spere</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <signal name="clicked" handler="sphere"/>
                               </widget>
                               <packing>
                                 <property name="expand">False</property>
                                 <property name="fill">False</property>
                                 <property name="position">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button13">
+                                <property name="label" translatable="yes">lathe</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <signal name="clicked" handler="lathe"/>
+                              </widget>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">3</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <widget class="GtkButton" id="button14">
+                                <property name="label" translatable="yes">plane</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                                <signal name="clicked" handler="plane"/>
+                              </widget>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="fill">False</property>
+                                <property name="position">4</property>
                               </packing>
                             </child>
                           </widget>

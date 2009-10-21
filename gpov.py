@@ -62,11 +62,16 @@ class gpov:
 		lib.prefs.loadprefs(self)
 		self.editorvisible=False
 		self.tb.set_modified(False)
-		dic ={"kamera" : self.kamera,
-		"swiatlo" : self.swiatlo,
+		dic ={"camera" : self.camera,
+		"light" : self.light,
 		"box"	: self.box,
-		"kula"	: self.kula,
-		"wielokat"	: self.obrotowy}
+		"sphere"	: self.sphere,
+		"sor"	: self.sor,
+		"polygon" :self.polygon,
+		"prism" :self.prism,
+		"cone" :self.cone,
+		"plane" :self.plane,
+		"lathe":self.lathe }
 		self.wTree.signal_autoconnect(dic)
 	
 	def file_load(self,widget):
@@ -106,14 +111,16 @@ class gpov:
 			self.wTree.get_widget("button4").set_sensitive(1)
 		else: 
 			self.wTree.get_widget("button4").set_sensitive(0)
-	def kamera(self,widget): lib.povrayobjects.kamera(self)
-	def swiatlo(self,widget): lib.povrayobjects.swiatlo(self)
+	def camera(self,widget): lib.povrayobjects.camera(self)
+	def light(self,widget): lib.povrayobjects.light(self)
 	def box(self,widget): lib.povrayobjects.box(self)
-	def kula(self,widget): lib.povrayobjects.kula(self)
-	def obrotowy(self,widget): lib.povrayobjects.wielokat(self)
-
-
-		
+	def sphere(self,widget): lib.povrayobjects.sphere(self)
+	def sor(self,widget): lib.povrayobjects.sor(self)
+	def polygon(self,widget): lib.povrayobjects.polygon(self)
+	def prism(self,widget): lib.povrayobjects.prism(self)
+	def cone(self,widget): lib.povrayobjects.cone(self)
+	def plane(self,widget): lib.povrayobjects.plane(self)
+	def lathe(self,widget): lib.povrayobjects.lathe(self)
 # wywołanie aplikacji
 if __name__ == "__main__":
 	gtk.gdk.threads_init()

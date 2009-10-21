@@ -4,11 +4,17 @@
 #zapisz jako, nowy plik *.pov
 #help
 #miniaturka w edycji
-#obiekty(kula,swiatlo,stozek,lathe,sor,prism)
+#obiekty(kula,kamera,swiatlo,stozek,lathe,sor,prism,polygon,box,plane)
+#tekstury(lista dostepnych)
+#lista include
 #wstawianie obiektow w miejscu kursora
 #autozapis
 #Opisanie plikow i funkcji
 #eliminacja bugow
 #skroty klawiszowe
 #karty
+<<<<<<< HEAD
 #testa2
+=======
+#wielki kurwa test!
+>>>>>>> 7c445a54f7f42222eedfe061b66ede494a5a2387
