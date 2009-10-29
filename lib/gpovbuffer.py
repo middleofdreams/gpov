@@ -27,7 +27,7 @@ import re
 import sys
 import os.path
 import xml.sax
-import imp
+import imp,gobject
 from xml.sax.handler import ContentHandler
 from xml.sax.saxutils import unescape
 
@@ -50,7 +50,7 @@ DEFAULT_STYLES = {
     'datatype':     {'foreground': '#2E8B57',
                      'weight': pango.WEIGHT_BOLD},
     'function':     {'foreground': '#008A8C'},
-
+	'error':		{'background':	'#D30B0B' },
     'link':         {'foreground': '#0000FF',
                      'underline': pango.UNDERLINE_SINGLE}}
 
@@ -80,7 +80,6 @@ SYNTAX_PATH = [ os.path.join('.', 'syntax'),
 
 # enable/disable debug-messages
 DEBUG_FLAG  = False
-
 
 #
 # Some log functions...
@@ -571,6 +570,10 @@ class CodeBuffer(gtk.TextBuffer):
 	@property
 	def can_redo(self):
 		return bool(self.redo_stack)
+	def show_error(self,start,end):
+		self._apply_tags=True
+		self.apply_tag_by_name("error",start,end)
+		self._apply_tags=False	
 	def _on_apply_tag(self, buf, tag, start, end):
 		if not self._apply_tags:
 			self.emit_stop_by_name('apply-tag')

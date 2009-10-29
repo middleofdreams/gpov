@@ -14,3 +14,4 @@ def key_event(widget, event, klasa):
 				klasa.tb.undo()
 			elif gtk.gdk.keyval_name(event.keyval)== 'y':
 				klasa.tb.redo()
+

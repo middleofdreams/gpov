@@ -18,7 +18,7 @@ class gpov:
 		self.window.show()
 		#skroty klawiszowe:
 		self.window.connect("key_press_event", lib.keys.key_event,self)
-		if (self.window):	
+		if (self.window):
 			self.window.connect("destroy",gtk.main_quit)
 		
 		#pobranie obiektow z glade			
