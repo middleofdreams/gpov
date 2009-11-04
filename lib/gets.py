@@ -13,8 +13,7 @@ def getoutput(proces,klasa):
 	pid=proces.wait()
 	if pid==0:
 		stdout_value = proces.communicate()[1]
-                
-                
+                     
                           
 		klasa.tb2.insert(klasa.tb2.get_end_iter(), str(stdout_value))
 		klasa.tb2.create_mark("kam",klasa.tb2.get_end_iter(),False)

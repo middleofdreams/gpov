@@ -1,4 +1,4 @@
-import os,sys,gtk,subprocess,gets,time,render,picture,threading
+import os,sys,gtk,subprocess,gets,time,render,picture,gobject
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
 from gpovbuffer import add_syntax_path, SyntaxLoader
 def showprogress():
@@ -27,7 +27,7 @@ def show_editor(klasa,filename):
 	klasa.wTree.get_widget("hbox3").show()
 	klasa.wTree.get_widget("vpaned2").set_position(400)
 	klasa.window.move(gtk.gdk.screen_width()/4, gtk.gdk.screen_height()/6)
-	threading.Thread(target=loadfile,args=(klasa,filename)).start()
+	gobject.idle_add(loadfile,klasa,filename)
 	f=open(filename,'r')
 	klasa.edytor.set_sensitive(False)
 	klasa.tb.begin_not_undoable_action()

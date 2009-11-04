@@ -1,4 +1,4 @@
-import threading,subprocess,gets,time,picture
+import threading,subprocess,gets,time,picture,gobject
 
 class testrunning():
 	def __init__(self):
@@ -13,7 +13,7 @@ def progressbar(progress,var):
 	while var.get_running():
 		time.sleep(0.1)
 		if progress.child!=None:
-			progress.child.pulse()
+			gobject.idle_add(progress.child.pulse)
 	time.sleep(0.1)
 	#var.destroy()
 
@@ -26,11 +26,11 @@ def renderowanie(klasa,options,progress,var):
 		time.sleep(0.2)
 		pict=gets.getpicdir(klasa)
 		time.sleep(0.2)
-		picture.pictshow(pict)
+		gobject.idle_add(picture.pictshow,pict)
 	var.set_running(False)
 	progress.destroy()
 	time.sleep(0.1)
-	klasa.wTree.get_widget("button1").set_sensitive(1)
+	gobject.idle_add(klasa.wTree.get_widget("button1").set_sensitive,1)
 
 
 		
