@@ -1,4 +1,5 @@
 import os,sys,gtk,subprocess,gets,time,render,picture,gobject
+import gtksourceview2
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
 from gpovbuffer import add_syntax_path, SyntaxLoader
 def showprogress():
@@ -15,10 +16,10 @@ def showprogress():
 	progress.show()
 	return okno
 	
-def loadfile(klasa,filename):
-	add_syntax_path(".")
+def lloadfile(klasa,filename):
+#	add_syntax_path(".")
 	lspec = SyntaxLoader("povraysyntax")
-	klasa.tb.reset_language(lspec)
+#	klasa.tb.reset_language(lspec)
 	
 def show_editor(klasa,filename):
 	klasa.edytor.show()
@@ -27,16 +28,21 @@ def show_editor(klasa,filename):
 	klasa.wTree.get_widget("hbox3").show()
 	klasa.wTree.get_widget("vpaned2").set_position(400)
 	klasa.window.move(gtk.gdk.screen_width()/4, gtk.gdk.screen_height()/6)
-	gobject.idle_add(loadfile,klasa,filename)
+#	gobject.idle_add(loadfile,klasa,filename)
+#	langman=gtksourceview2.language_manager_get_default()
+#	langs = langman.get_language_ids()	
+#	for lang in langs:
+#		print gtksourceview2.get_language_name(lang)
 	f=open(filename,'r')
 	klasa.edytor.set_sensitive(False)
 	klasa.tb.begin_not_undoable_action()
 	buff = klasa.edytor.get_buffer()
 	buff.set_text(f.read())
+#	buff.set_language("povray")
 	buff.set_modified(False)
 	klasa.edytor.set_sensitive(True)	
 	klasa.tb.end_not_undoable_action()
-	f.close()
+	#f.close()
 	
 	
 

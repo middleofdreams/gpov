@@ -28,7 +28,7 @@ def getoutput(proces,klasa):
 					#klasa.tb.remove_all_tags(klasa.tb.get_start_iter(),  klasa.tb.get_end_iter())
 					start=klasa.tb.get_iter_at_line(linenumber-1)
 					end=klasa.tb.get_iter_at_line(linenumber)		
-					klasa.tb.show_error(start,end)
+					#klasa.tb.show_error(start,end)
 					end_mark = klasa.tb.create_mark(
 						"end_mark", end, False);
 					klasa.edytor.scroll_to_mark(end_mark,0,False,)

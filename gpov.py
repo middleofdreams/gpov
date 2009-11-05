@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import sys,pygtk,gtk,gtk.glade,gobject,os,locale,subprocess,time,threading
+import gtksourceview2
 dir=os.path.abspath(os.path.dirname(sys.argv[0]))
 import lib
 from lib.gpovbuffer import CodeBuffer
@@ -28,10 +29,12 @@ class gpov:
 		self.wybor = self.wTree.get_widget("filechooserbutton1")
 		self.height= self.wTree.get_widget("entry2")
 		self.width = self.wTree.get_widget("entry1")
-		self.edytor=self.wTree.get_widget("edytor")
+		self.edytor=gtksourceview2.View(gtksourceview2.Buffer())
+		self.wTree.get_widget("scrolledwindow1").add(self.edytor)
+		#self.edytor=self.wTree.get_widget("edytor")
 		self.outt=self.wTree.get_widget("textview1")
 		#modyfikacja buffera edytora - dla undo i redo
-		self.edytor.set_buffer(CodeBuffer(None))
+		#self.edytor.set_buffer(gtksourceview2.gtksourcebuffer())
 		
 		#pobranie bufferow edytora i outputu
 		self.tb=self.edytor.get_buffer()

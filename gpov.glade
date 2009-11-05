@@ -758,14 +758,7 @@
                         <property name="hscrollbar_policy">automatic</property>
                         <property name="vscrollbar_policy">automatic</property>
                         <child>
-                          <widget class="GtkTextView" id="edytor">
-                            <property name="visible">True</property>
-                            <property name="can_focus">True</property>
-                            <property name="resize_mode">immediate</property>
-                            <property name="wrap_mode">word</property>
-                            <signal name="page_horizontally" handler="on_edytor_scroll_event"/>
-                            <signal name="scroll_event" handler="on_edytor_scroll_event"/>
-                          </widget>
+                          <placeholder/>
                         </child>
                       </widget>
                       <packing>
