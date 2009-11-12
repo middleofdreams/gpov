@@ -14,4 +14,9 @@ def key_event(widget, event, klasa):
 				klasa.tb.undo()
 			elif gtk.gdk.keyval_name(event.keyval)== 'y':
 				klasa.tb.redo()
-
+			elif gtk.gdk.keyval_name(event.keyval)== 'v':
+				klasa.tb.paste_clipboard(gtk.clipboard_get(),None,True)
+			elif gtk.gdk.keyval_name(event.keyval)== 'c':
+				klasa.tb.copy_clipboard(gtk.clipboard_get())
+			elif gtk.gdk.keyval_name(event.keyval)== 'x':
+				klasa.tb.cut_clipboard(gtk.clipboard_get(),True)
