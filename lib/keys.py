@@ -11,9 +11,12 @@ def key_event(widget, event, klasa):
 			elif gtk.gdk.keyval_name(event.keyval)== 'q':
 				gtk.main_quit(klasa)
 			elif gtk.gdk.keyval_name(event.keyval)== 'z':
-				klasa.tb.undo()
+				if klasa.tb.can_undo():
+					klasa.tb.undo()
+
 			elif gtk.gdk.keyval_name(event.keyval)== 'y':
-				klasa.tb.redo()
+				if klasa.tb.can_redo():
+					klasa.tb.redo()
 			elif gtk.gdk.keyval_name(event.keyval)== 'v':
 				klasa.tb.paste_clipboard(gtk.clipboard_get(),None,True)
 			elif gtk.gdk.keyval_name(event.keyval)== 'c':
